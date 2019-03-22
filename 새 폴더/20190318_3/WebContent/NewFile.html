@@ -1,0 +1,26 @@
+<html>
+<head>
+<title>script tag의위치</title>
+<!--script tag의위치#1 -->
+<script type="text/javascript">
+document.write("반갑습니다. 여러분!");
+</script>
+</head>
+<body>
+즐거운하루입니다.
+<!--script tag의위치#2 -->
+<script type="text/javascript">
+document.write(typeof(123));
+document.write(typeof("123"));
+
+var length = 123, length_num, length_str;
+length_num= length + 10;
+length_str= length.toString()+ 10;
+document.write('<br />'+"Length in Number: " + length_num+ " cm" + '<br />');
+document.write("Length in String: " + length_str+ " cm" + '<br />');
+var num= parseInt(length_str) + 20;
+document.write("Length in Integer: " + num+ " cm");
+
+</script>
+</body>
+</html>
