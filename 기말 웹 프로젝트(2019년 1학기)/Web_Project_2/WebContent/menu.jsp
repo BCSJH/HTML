@@ -1,0 +1,39 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+	pageEncoding="EUC-KR"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>메뉴</title>
+</head>
+<%
+	request.setCharacterEncoding("EUC-KR");
+%>
+<body>
+	<div>
+		<%
+			if (session.getAttribute("id") == null) { //id가 null이면
+		%>
+		<a href="main.jsp">홈</a><br>
+		<a href="main.jsp?pagefile=schedule"> 학과일정 </a><br>
+		<a href="main.jsp?pagefile=attend"> 출석확인 </a><br>
+		<a href="main.jsp?pagefile=sign"> 출석안내문 </a><br>
+		<a href="main.jsp?pagefile=board"> 게시판목록 </a>
+		<%
+			} else { //id가 null이 아니면 
+		%>
+		<a href="main.jsp">홈</a><br>
+		<a href="main.jsp?pagefile=schedule"> 학과일정 </a><br>
+		<a href="main.jsp?pagefile=attend"> 출석확인 </a><br>
+		<a href="main.jsp?pagefile=sign"> 출석안내문 </a><br>
+		<a href="main.jsp?pagefile=board"> 게시판목록 </a>
+		<ul>
+			<li><a href="main.jsp?pagefile=formalobjection"> 이의 신청 게시판 </a></li>
+			<li><a href="main.jsp?pagefile=notice"> 공지 게시판 </a></li>
+		</ul>
+		<%
+			}
+		%>
+	</div>
+</body>
+</html>
