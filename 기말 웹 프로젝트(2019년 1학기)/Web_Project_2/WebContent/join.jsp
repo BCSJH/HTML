@@ -23,8 +23,9 @@
         // 필수 입력정보인 아이디, 비밀번호가 입력되었는지 확인하는 함수
         function checkValue()
         {
+
             if(!document.userInfo.id.value){
-                alert("아이디를 입력하세요.");
+                alert("학번을 입력하세요.");
                 return false;
             }
             
@@ -40,7 +41,12 @@
             }
         }
     </script>
-    
+    <!--
+    	해야할 문제
+    	중복처리에 보이지 않는 input 값을 넣어서 그 값이 0이면 중복 처리를 해주세요.
+									       값이 1이면 이미 존재하는 학번입니다.
+									       값이 2이면 회원가입이 완료되었습니다.    
+    -->
 </head>
 <body onLoad="userInfo.id.focus()">
     
@@ -58,6 +64,8 @@
                     <td>
                         <input type="text" name="id" maxlength="50">
                         <input type="button" name="confirm_id" value="중복확인" onClick="checkid(this.form.id.value)">                     
+                        <input type="hidden" name="id_check_ok" value=0>
+                    
                     </td>
                 </tr>
           
