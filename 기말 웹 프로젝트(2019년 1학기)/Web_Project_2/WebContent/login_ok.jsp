@@ -37,7 +37,7 @@
 				flag = rs.next();
 				
 				if (id.equals(rs.getString("userID")) && pwd.equals(rs.getString("userPassword"))) {
-
+					
 					session.setAttribute("id", id);//아이디값을 세션으로 저장해줌
 				}
 				else {

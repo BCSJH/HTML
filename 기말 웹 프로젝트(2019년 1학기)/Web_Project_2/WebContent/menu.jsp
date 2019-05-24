@@ -24,7 +24,7 @@
 		%>
 		<a href="main.jsp">홈</a><br>
 		<a href="main.jsp?pagefile=schedule"> 학과일정 </a><br>
-		<a href="main.jsp?pagefile=attend"> 출석확인 </a><br>
+		<a href="main.jsp?pagefile=insertForm_professor"> 출석확인 </a><br>
 		<a href="main.jsp?pagefile=sign"> 출석안내문 </a><br>
 		<a href="main.jsp?pagefile=board"> 게시판목록 </a>
 		<ul>
