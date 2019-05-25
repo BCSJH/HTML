@@ -11,8 +11,8 @@ String userPassword = request.getParameter("password");
 String userGender = request.getParameter("gender");
 String userMajor = request.getParameter("major");
 
-Connection conn=null;
-PreparedStatement pstmt=null;
+Connection conn = null;
+PreparedStatement pstmt = null;
 
 try{
 String jdbcUrl="jdbc:mysql://localhost:3306/attend_check?serverTimezone=UTC";

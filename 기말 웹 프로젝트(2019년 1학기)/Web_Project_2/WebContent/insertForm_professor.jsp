@@ -2,6 +2,8 @@
     pageEncoding="EUC-KR"%>
     <%@ page import = "java.sql.*" %>
 	<%@ page import = "java.*" %>
+	<%@page import="java.util.Date" %>
+    <%@page import="java.text.SimpleDateFormat" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -74,15 +76,30 @@
 				 %>
 					<tr>
 						<td>
-							<%=id %>
+						<!-- 
+							hidden input 만들어서 그 value값에 넣어서 전송하는 방식으로 하기 
+							여기서 중요한 것 전체적으로 보내야한다는 것
+						-->
+							<%=id%>
+							<input type="hidden" id="userID" name= "userID" value=<%=id%>>
+							
 						</td>
 						
 						<td>
-							<%=name %>
+							<%=name%>
+							<input type="hidden" id="userName" name= "userName" value="<%=name%>">
+													
 						</td>
 						
 						<td>
-							시간</td>
+							<%
+							 Date now = new Date();
+							 SimpleDateFormat sf = new SimpleDateFormat("yyyy.MM.dd");
+							 String today = sf.format(now);
+							%>
+							<br>
+							<%= today %>
+						</td>
 						<td>
 						<select name="check">
 							<option value="0" selected="selected">출석</option>
