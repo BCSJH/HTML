@@ -24,24 +24,20 @@ String jdbcUrl="jdbc:mysql://localhost:3306/attend_check?serverTimezone=UTC";
 String dbId="root";
 String dbPass="test1234";
 Class.forName("com.mysql.jdbc.Driver");
-conn=DriverManager.getConnection(jdbcUrl,dbId ,dbPass );
+conn=DriverManager.getConnection(jdbcUrl,dbId,dbPass);
+
 String sql= "select * from attend_check_s";
 pstmt=conn.prepareStatement(sql);
 rs=pstmt.executeQuery();
 %>
 <%
-out.print(rs.getRow());
 while(rs.next()){
 	String userID= rs.getString("userID");
 	String userName= rs.getString("userName");
-	Timestamp date= rs.getTimestamp("date");
+	String date= rs.getString("date");
 	String check= rs.getString("check");
-	%>		<tr>
-			<td><%=userID%>
-			<td><%=userName%>
-			<td><%=date.toString()%>
-			<!-- 출력을 해보았을 때 한 줄만 가져옴... 왜? 모르겠어!! -->
-	<%
+
+
 	if(userID.equals(userID_2)){
 		%>
 		<tr>
@@ -67,16 +63,24 @@ while(rs.next()){
 		</tr>
 <% 
 	}
+	
  }
 }catch(Exception e){
 e.printStackTrace();
+out.print("여기");
 }finally{
 if(rs != null)
-try{rs.close();}catch(SQLException sqle){}
+try{rs.close();}catch(SQLException sqle){
+	out.print("여기?");
+}
 if(pstmt != null)
-try{pstmt.close();}catch(SQLException sqle){}
+try{pstmt.close();}catch(SQLException sqle){
+	out.print("여기??");
+}
 if(conn != null)
-try{conn.close();}catch(SQLException sqle){}
+try{conn.close();}catch(SQLException sqle){
+	out.print("여기???");
+}
 }
 %>
 </table>
