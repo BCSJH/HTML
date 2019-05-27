@@ -22,35 +22,7 @@
 	<td>이름</td>
 	<td>출석 시간</td>
 	<td>출석 여부</td>
-	
-	<!-- 	
-	<td>4/2</td>
-	<td>4/3</td>
-	<td>4/4</td>
-	<td>4/5</td>
-	<td>4/8</td>
-	<td>4/9</td>
-	<td>4/10</td>
-	<td>4/11</td>
-	<td>4/12</td>
-	
-	<td>4/15</td>
-	<td>4/16</td>
-	<td>4/17</td>
-	<td>4/18</td>
-	<td>4/19</td>
-	
-	<td>4/22</td>
-	<td>4/23</td>
-	<td>4/24</td>
-	<td>4/25</td>
-	<td>4/26</td>
-	
-	<td>4/29</td>
-	<td>4/30</td>
-	<td>4/31</td>		
-	</tr>
-	 -->
+
 	 <%
 		 
 		String pwd = request.getParameter("pwd");

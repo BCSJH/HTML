@@ -6,12 +6,7 @@
 <title> 회원 정보 표시 </title>
 </head>
 <body>
-<table>
-<tr>
-<td>학번
-<td>이름
-<td>날짜
-<td>출석 여부
+
 
 <%
 String userID_2 = (String)session.getAttribute("id");
@@ -31,58 +26,77 @@ pstmt=conn.prepareStatement(sql);
 rs=pstmt.executeQuery();
 %>
 <%
-while(rs.next()){
-	String userID= rs.getString("userID");
-	String userName= rs.getString("userName");
-	String date= rs.getString("date");
-	String check= rs.getString("check");
 
-
-	if(userID.equals(userID_2)){
-		%>
+if (session.getAttribute("id")!= null) {
+%>
+	<table>
 		<tr>
-			<td><%=userID%>
-			<td><%=userName%>
-			<td><%=date.toString()%>
-			<td>
-			<%
-			if(check.equals("0"))
-			{
-				out.print("출석")	;
-			}
-			else if(check.equals("1")){
-				out.print("지각")	;
-			}
-			else if(check.equals("2")){
-				out.print("결석")	;
-			}
-			else{
-				out.print("");
-			}
-			%>
+			<td>학번
+			<td>이름
+			<td>날짜
+			<td>출석 여부
 		</tr>
-<% 
-	}
+<%
+	while(rs.next()){
+		String userID= rs.getString("userID");
+		String userName= rs.getString("userName");
+		String date= rs.getString("date");
+		String check= rs.getString("check");
+
 	
- }
+		if(userID.equals(userID_2)){
+			%>
+			<tr>
+				<td><%=userID%>
+				<td><%=userName%>
+				<td><%=date.toString()%>
+				<td>
+				<%
+				if(check.equals("0"))
+				{
+					out.print("출석")	;
+				}
+				else if(check.equals("1")){
+					out.print("지각")	;
+				}
+				else if(check.equals("2")){
+					out.print("결석")	;
+				}
+				else{
+					out.print("");
+				}
+				%>
+			</tr>
+<% 
+		}
+	
+	}
+%>
+</table>
+<%
+}
+else{
+	%>
+	웹 수강 신청한 학생만 이용 가능합니다.
+	<%
+}
 }catch(Exception e){
 e.printStackTrace();
-out.print("여기");
+
 }finally{
 if(rs != null)
 try{rs.close();}catch(SQLException sqle){
-	out.print("여기?");
+
 }
 if(pstmt != null)
 try{pstmt.close();}catch(SQLException sqle){
-	out.print("여기??");
+
 }
 if(conn != null)
 try{conn.close();}catch(SQLException sqle){
-	out.print("여기???");
+
 }
 }
 %>
-</table>
 </body>
 </html>

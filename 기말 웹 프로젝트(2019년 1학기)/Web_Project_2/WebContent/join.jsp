@@ -2,6 +2,12 @@
     pageEncoding="EUC-KR"%>
 <html>
 <head>
+	<style>
+		#line{
+		margin: 0 auto;
+		width:500px;
+		}
+	</style>
     <title>회원가입 화면</title>
     
  
@@ -50,7 +56,7 @@
 </head>
 <body onLoad="userInfo.id.focus()">
     
-    <div id="wrap">
+    <div id="line">
         <br><br>
         <b><font size="6" color="gray">회원가입</font></b>
         <br><br><br>
@@ -63,9 +69,12 @@
                     <td id="title">학번</td>
                     <td>
                         <input type="text" name="id" maxlength="50">
-                        <input type="button" name="confirm_id" value="중복확인" onClick="checkid(this.form.id.value)">                     
+                   </td>
+                    <td>
+                        <input type="button" name="confirm_id" value="중복확인" onClick="checkid(this.form.id.value)"> 
+                    </td>
+                    <td>                    
                         <input type="hidden" name="id_check_ok" value=0>
-                    
                     </td>
                 </tr>
           
