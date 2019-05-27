@@ -40,7 +40,11 @@
 					
 					session.setAttribute("id", id);//아이디값을 세션으로 저장해줌
 				}
+				else if(id.equals(rs.getString("userID"))&& !pwd.equals(rs.getString("userPassword"))) {
+					out.println("<script>alert('비밀번호가 틀렸습니다.'); location.href='template.jsp';</script>.");
+				}
 				else {
+					out.println("<script>alert('존재하지 않는 아이디입니다.'); location.href='template.jsp';</script>.");
 				}
 			}catch(Exception e){
 				e.printStackTrace();
