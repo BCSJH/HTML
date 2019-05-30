@@ -3,6 +3,11 @@
 <!DOCTYPE html>
 <html>
 <head>
+<style>
+	#header_style{
+		text-align: center;
+	}
+</style>
 <meta charset="EUC-KR">
 <title>header</title>
 </head>
@@ -10,6 +15,18 @@
 	request.setCharacterEncoding("EUC-KR");
 %>
 <body>
+<div>
+<table id="header_style">
+<tr>
+<td>
+		<img src="image_uv.png" width="60" height="60">
+</td>
+<td>
+		<font size="5px"><b> 한국성서대학교</b> 출석 사이트 </font>
+</td>
+</tr>
+</table>
+</div>
 	<%
 		if (session.getAttribute("id") != null) {
 	%>

@@ -24,8 +24,8 @@
   	  <br><br>
    		<b><font size="6" color="gray">로그인</font></b><br><br>
 		<form action="login_ok.jsp" method="post">
-				아이디 <input type="text" name="id" maxlength="50"><br><br>
-				비밀번호 <input type="password" name="pwd" maxlength="50"><br><br>
+				아이디 &nbsp;&nbsp;&nbsp;<input type="text" name="id" maxlength="60" ><br><br>
+				비밀번호&nbsp;<input type="password" name="pwd" maxlength="60" ><br><br>
 				<input type="submit" value="로그인" >
 			 
 				<input type="button" value="회원가입" onclick="location.href = 'main.jsp?pagefile=join'">

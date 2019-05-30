@@ -55,7 +55,6 @@ String id_input = request.getParameter("id");
 			%>
 			<br/><b><%=id_input%></b>
 			
-			<!-- 값을 변경해서 뜨게해야되는데...어떻게하지 -->
 			
 			<%
 			

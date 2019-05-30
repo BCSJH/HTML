@@ -17,6 +17,7 @@
 			if (session.getAttribute("id")==null) { //id가 null이면
 		%>
 				<a href="main.jsp">홈</a><br>
+				<a href="main.jsp?pagefile=info_change">정보수정</a><br>
 				<a href="main.jsp?pagefile=schedule"> 학과일정 </a><br>
 				<a href="main.jsp?pagefile=attend"> 출석확인 </a><br>
 				<a href="main.jsp?pagefile=sign"> 출석안내문 </a><br>
@@ -26,6 +27,7 @@
 			else if(id.equals("1234")) { //id가 null이면
 				%>
 		<a href="main.jsp">홈</a><br>
+		<a href="main.jsp?pagefile=info_change">회원관리</a><br>
 		<a href="main.jsp?pagefile=schedule"> 학과일정 </a><br>
 		<a href="main.jsp?pagefile=insertForm_professor"> 출석체크 </a><br>
 		<a href="main.jsp?pagefile=sign"> 출석안내문 </a><br>
@@ -40,6 +42,7 @@
 			else { //id가 null이 아니면 
 		%>
 		<a href="main.jsp">홈</a><br>
+		<a href="main.jsp?pagefile=info_change">정보수정</a><br>
 		<a href="main.jsp?pagefile=schedule"> 학과일정 </a><br>
 		<a href="main.jsp?pagefile=attend"> 출석확인 </a><br>
 		<a href="main.jsp?pagefile=sign"> 출석안내문 </a><br>

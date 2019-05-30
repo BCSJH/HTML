@@ -17,11 +17,11 @@
 }
 
 #header {
-	padding: 20px;
-	margin-bottom: 5px;
+	padding:20px;
+	margin-bottom: 10px;
+	margin-left: 100px;
 	width: 900px;
-	height: 10px;
-	border: 1px solid #bcbcbc;
+	height: 90;
 	float: right;
 	text-align: right;
 }
