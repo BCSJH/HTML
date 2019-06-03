@@ -35,7 +35,7 @@
 %>
 </head>
 <body>
-<h1>웹시스템설계및개발</h1>
+<h1>운영체제</h1>
 <br>
 <table class="ex1">
 	<tr>
@@ -43,13 +43,13 @@
 			학년도 : 2019
 		</td>
 		<td>
-			강좌번호 : IC110-A
+			강좌번호 : IC066-A
 		</td>
 		<td>
 			이수구분 : 전공 선택
 		</td>
 		<td>
-			교수명 : 양혜경
+			교수명 : 임지영
 		</td>
 	</tr>
 	<tr>
@@ -57,7 +57,7 @@
 			학기 : 1
 		</td>
 		<td>
-			교과목명 : 웹시스템설계및개발
+			교과목명 : 운영체제
 		</td>
 		<td>
 			학점 :3
@@ -100,7 +100,7 @@
 </table>
 
 				<!-- 관리자 부분은 빼줘야하므로 -1 -->
-		<form method="post" action="insertPro_professor.jsp">
+		<form method="post" action="insertPro_professor3.jsp">
 		<table class="ex2">
 			<tr>
 			<th>학번</th>

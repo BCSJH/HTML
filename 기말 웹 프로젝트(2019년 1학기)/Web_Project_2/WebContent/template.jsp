@@ -29,14 +29,14 @@
 #menu {
 	padding: 10px;
 	margin-bottom: 5px;
-	width: 180px;
+	width: 200px;
 	height: 900px;
 	float: left;
 	border: 1px solid #bcbcbc;
 }
 
 #content {
-	width: 700px;
+	width: 680px;
 	height: 900px;
 	padding: 10px;
 	float: right;

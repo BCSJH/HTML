@@ -11,9 +11,14 @@
 <%
 String userID_2 = (String)session.getAttribute("id");
 
+int late = 0;
+int absent = 0;
+int attend = 0;
+
 Connection conn=null;
 PreparedStatement pstmt=null;
 ResultSet rs=null;
+
 try{
 String jdbcUrl="jdbc:mysql://localhost:3306/attend_check?serverTimezone=UTC";
 String dbId="root";
@@ -55,17 +60,32 @@ if (session.getAttribute("id")!= null) {
 				if(check.equals("0"))
 				{
 					out.print("출석")	;
+					attend++;
 				}
 				else if(check.equals("1")){
 					out.print("지각")	;
+					late++;
 				}
 				else if(check.equals("2")){
 					out.print("결석")	;
+					absent++;
 				}
 				else{
 					out.print("");
 				}
 				%>
+			</tr>
+			<tr>
+				<td>
+					출석 : <%=attend%><br>
+					지각 : <%=late%><br>
+					결석 : <%=absent%><br>
+				</td>
+				<td>
+				<% 
+
+				%>
+				</td>
 			</tr>
 <% 
 		}

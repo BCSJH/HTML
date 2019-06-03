@@ -30,6 +30,11 @@
 		<a href="main.jsp?pagefile=info_change">회원관리</a><br>
 		<a href="main.jsp?pagefile=schedule"> 학과일정 </a><br>
 		<a href="main.jsp?pagefile=insertForm_professor"> 출석체크 </a><br>
+		<ul>
+			<li><a href="main.jsp?pagefile=insertForm_professor"> 웹시스템설계및개발 </a></li>
+			<li><a href="main.jsp?pagefile=insertForm_professor2"> 운영체제 </a></li>
+			<li><a href="main.jsp?pagefile=insertForm_professor3"> 머신러닝 프로그램 </a></li>
+		</ul>
 		<a href="main.jsp?pagefile=sign"> 출석안내문 </a><br>
 		<a href="main.jsp?pagefile=board"> 게시판목록 </a>
 		<ul>

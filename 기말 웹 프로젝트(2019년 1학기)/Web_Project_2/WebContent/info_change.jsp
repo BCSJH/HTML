@@ -24,7 +24,73 @@
 				%>
 				관리자 영역입니다.
 				<%
-					}
+				boolean flag = false;
+				Connection conn = null;
+				boolean check = false;
+				PreparedStatement pstmt=null;
+				ResultSet rs = null;
+				try{
+					String jdbcUrl="jdbc:mysql://localhost:3306/attend_check?serverTimezone=UTC";
+					String dbId="root";
+					String dbPass="test1234";
+					Class.forName("com.mysql.jdbc.Driver");
+					conn=DriverManager.getConnection(jdbcUrl,dbId ,dbPass);
+					String sql= "select * from attend_info";
+					pstmt=conn.prepareStatement(sql);
+					rs=pstmt.executeQuery();
+					%>
+					<form method="post" action="info_change_Pro_db.jsp" id="info_change" name="info_change">
+	        		<table>
+	        		<tr>
+	        			<th>체크</th>
+	        			<th>학번</th>
+	        			<th>이름</th>
+	        			<th>전공</th>
+	        		</tr>
+					<%
+					while(rs.next()){	
+							String userID= rs.getString("userID");
+							String userName= rs.getString("userName");
+							String userMajor= rs.getString("userMajor");
+							if (userID.equals("1234")){
+								continue;
+							}
+							%>
+							<tr>
+								<td>
+								<input type="checkbox" id="userID" name="userID" value="<%=userID%>">
+								</td>
+								<td>
+								<%=userID%> 
+								</td>
+								<td>
+								<%=userName%>
+								</td>
+								<td>
+								<%=userMajor%>
+								</td>
+							</tr>
+						<% 
+						}
+					%>
+					</table>
+    					<input type="submit" value="관리"/>
+    					<input type="reset" value="취소">
+					</form>
+				<%
+						}catch(Exception e){
+						e.printStackTrace();
+						}finally{
+						if(rs != null)
+						try{rs.close();}catch(SQLException sqle){}
+						if(pstmt != null)
+						try{pstmt.close();}catch(SQLException sqle){}
+						if(conn != null)
+						try{conn.close();}catch(SQLException sqle){}
+						}
+					
+				
+			}
 			
 			//id가 null이 아니면 즉 관리자 영역이 아닌 아이디로 로그인 되어있다면
 			else {//id가 null이 아니면 
