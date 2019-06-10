@@ -31,6 +31,7 @@
 	String id = "" ;
 	String name = "";
 	String major ="";
+	String o ="";
 	int count = 0;
 %>
 </head>
@@ -70,7 +71,6 @@
 
 	 <%
 		 
-		String pwd = request.getParameter("pwd");
 		boolean flag = false;
 		Connection conn = null;
 
@@ -89,18 +89,24 @@
 			String sql= "select * from attend_info";
 			pstmt=conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
-			rs.last();
-			count = rs.getRow();
-			rs.first();	
+			
+			while(rs.next()){
+				o = rs.getString("o");
+				if("1".equals(o))
+				{
+					count++;
+				}
+			}
+			rs.first();
 		%>
 		<td>
-			수강인원  : <%=count-1 %>			
+			수강인원  : <%=count%>			
 		</td>
 	</tr>
 </table>
 
 				<!-- 관리자 부분은 빼줘야하므로 -1 -->
-		<form method="post" action="insertPro_professor3.jsp">
+		<form method="post" action="insertPro_professor2.jsp">
 		<table class="ex2">
 			<tr>
 			<th>학번</th>
@@ -113,16 +119,15 @@
 				id = rs.getString("userID");
 				name = rs.getString("userName");
 				major = rs.getString("userMajor");
+				o = rs.getString("o");
 				if (id.equals("1234")){
 					continue;
 				}
+				if("1".equals(o))
+				{
 				 %>
 					<tr>
 						<td>
-						<!-- 
-							hidden input 만들어서 그 value값에 넣어서 전송하는 방식으로 하기 
-							여기서 중요한 것 전체적으로 보내야한다는 것
-						-->
 							<%=id%>
 							<input type="hidden" id="userID" name= "userID" value=<%=id%>>
 							
@@ -159,6 +164,7 @@
 					
 					
 		<%
+				}
 			}
 
 			flag = rs.next();

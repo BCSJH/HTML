@@ -31,6 +31,7 @@
 	String id = "" ;
 	String name = "";
 	String major ="";
+	String m = "";
 	int count = 0;
 %>
 </head>
@@ -70,7 +71,6 @@
 
 	 <%
 		 
-		String pwd = request.getParameter("pwd");
 		boolean flag = false;
 		Connection conn = null;
 
@@ -89,17 +89,24 @@
 			String sql= "select * from attend_info";
 			pstmt=conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
-			rs.last();
-			count = rs.getRow();
+			rs.first();
+			while(rs.next()){
+				m = rs.getString("m");
+				if("1".equals(m))
+				{
+					count++;
+				}
+			}
+
 			rs.first();	
 		%>
 		<td>
-			수강인원  : <%=count-1 %>			
+			수강인원  : <%=count%>			
 		</td>
 	</tr>
 </table>
 
-				<!-- 관리자 부분은 빼줘야하므로 -1 -->
+				
 		<form method="post" action="insertPro_professor3.jsp">
 		<table class="ex2">
 			<tr>
@@ -113,9 +120,12 @@
 				id = rs.getString("userID");
 				name = rs.getString("userName");
 				major = rs.getString("userMajor");
-				if (id.equals("1234")){
+				m = rs.getString("m");
+				if(id.equals("1234")){
 					continue;
 				}
+				if("1".equals(m))
+				{
 				 %>
 					<tr>
 						<td>
@@ -159,6 +169,7 @@
 					
 					
 		<%
+				}
 			}
 
 			flag = rs.next();

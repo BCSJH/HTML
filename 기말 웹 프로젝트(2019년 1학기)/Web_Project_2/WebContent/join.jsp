@@ -113,7 +113,27 @@
                         </select>
                     </td>
                 </tr>
-                    
+                 
+                  <tr>
+                    <td id="title">수업</td>
+                  </tr>
+                  
+                    <tr>
+                    	<td>
+                     		<input type="checkbox" id="study1" name="study1" value="1">웹시스템설계및계발
+                    	</td>
+                    </tr>
+                    <tr>
+                    	<td>
+                     		<input type="checkbox" id="study2" name="study2" value="1">운영체제
+                    	</td>
+                    </tr>
+                    <tr>
+                    	<td>
+                     		<input type="checkbox" id="study3" name="study3" value="1">머신러닝프로그래밍
+                    	</td>
+                    </tr>
+                  
                 
             </table>
             <br>

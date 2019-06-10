@@ -10,7 +10,9 @@ String userName= request.getParameter("name");
 String userPassword = request.getParameter("password");
 String userGender = request.getParameter("gender");
 String userMajor = request.getParameter("major");
-
+String w = request.getParameter("study1");
+String o = request.getParameter("study2");
+String m = request.getParameter("study3");
 Connection conn = null;
 PreparedStatement pstmt = null;
 
@@ -21,13 +23,16 @@ try{
 	Class.forName("com.mysql.jdbc.Driver");
 
 	conn = DriverManager.getConnection(jdbcUrl, dbId, dbPass);
-	String sql = "insert into attend_info values (?,?,?,?,?)";
+	String sql = "insert into attend_info values (?,?,?,?,?,?,?,?)";
 	pstmt = conn.prepareStatement(sql);
 	pstmt.setString(1,userID);
 	pstmt.setString(2,userPassword);
 	pstmt.setString(3,userName);
 	pstmt.setString(4,userGender);
 	pstmt.setString(5,userMajor);
+	pstmt.setString(6,w);
+	pstmt.setString(7,o);
+	pstmt.setString(8,m);
 	pstmt.executeUpdate();
 
 	out.println("<script>alert('회원가입이 완료되었습니다.'); location.href='template.jsp';</script>.");

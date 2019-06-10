@@ -28,9 +28,10 @@
 <meta charset="EUC-KR">
 <title>교수 출석 체크</title>
 <%
-	String id = "" ;
+	String id = "";
 	String name = "";
 	String major ="";
+	String w = "";
 	int count = 0;
 %>
 </head>
@@ -70,7 +71,6 @@
 
 	 <%
 		 
-		String pwd = request.getParameter("pwd");
 		boolean flag = false;
 		Connection conn = null;
 
@@ -89,12 +89,18 @@
 			String sql= "select * from attend_info";
 			pstmt=conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
-			rs.last();
-			count = rs.getRow();
+
+			while(rs.next()){
+				w = rs.getString("w");
+				if("1".equals(w))
+				{
+					count++;
+				}
+			}
 			rs.first();	
 		%>
 		<td>
-			수강인원  : <%=count-1 %>			
+			수강인원  : <%=count%>			
 		</td>
 	</tr>
 </table>
@@ -113,10 +119,16 @@
 				id = rs.getString("userID");
 				name = rs.getString("userName");
 				major = rs.getString("userMajor");
+				w = rs.getString("w");
 				if (id.equals("1234")){
 					continue;
 				}
+				if("1".equals(w))
+				{
 				 %>
+				 
+				 <!-- 여기서 부터 -->
+				 
 					<tr>
 						<td>
 						<!-- 
@@ -157,8 +169,10 @@
 						</td>
 					</tr>
 					
+				
 					
 		<%
+				}
 			}
 
 			flag = rs.next();
