@@ -15,7 +15,6 @@ protected Connection getConnection() throws Exception {
 Context initCtx = new InitialContext();
 Context envCtx = (Context) initCtx.lookup("java:comp/env");
 DataSource ds = (DataSource) envCtx.lookup("jdbc/jsptest");
-//DataSource ds = (DataSource) envCtx.lookup("jdbc/attend_check");
 return ds.getConnection();
 }
 }
