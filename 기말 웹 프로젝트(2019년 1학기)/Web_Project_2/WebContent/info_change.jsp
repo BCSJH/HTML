@@ -15,7 +15,7 @@
 		<%
 			String id = (String)session.getAttribute("id");
 			String userPassword = "";
-			if (session.getAttribute("id")==null) { //id가 null이면
+			if (session.getAttribute("id")==null) { //id가 null이면 <- 로그인을 하지 않았을 경우
 		%>
 				로그인을 해주세요.
 		<%
@@ -97,12 +97,13 @@
 		%>
 			회원 수정
 			<%
+			//디비 연동에 필요한 변수
 			boolean flag = false;
 			Connection conn = null;
-			boolean check = false;
 			PreparedStatement pstmt=null;
 			ResultSet rs = null;
 			
+			//디비연동
 			try{
 				String jdbcUrl="jdbc:mysql://localhost:3306/attend_check?serverTimezone=UTC";
 				String dbId="root";
@@ -113,6 +114,7 @@
 				pstmt=conn.prepareStatement(sql);
 				rs=pstmt.executeQuery();
 				
+				//쿼리 한줄씩 가져오기
 				while(rs.next()){	
 						String userID= rs.getString("userID");
 						userPassword= rs.getString("userPassword");
@@ -121,6 +123,7 @@
 						String userMajor= rs.getString("userMajor");
 						
 						
+						//자신의 정보 수정
 						if (id.equals(userID)){
 						%>
 						<form method="post" action="info_change_db.jsp" id="info_change" name="info_change" >

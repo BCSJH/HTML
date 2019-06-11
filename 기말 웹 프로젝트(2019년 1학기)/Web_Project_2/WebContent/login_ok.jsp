@@ -14,33 +14,48 @@
 <body>
 	<div>
 		<%
+			//아이디와 비밀번호 가져오기
 			String id = request.getParameter("id");
 			String pwd = request.getParameter("pwd");
+			
+			//디비연동에 필요한 변수
 			boolean flag = false;
 			Connection conn = null;
-			boolean check = false;
-			int check_num = 1;
 			PreparedStatement pstmt=null;
 			ResultSet rs = null;
 
 			try{
+				//디비 연동
 				String jdbcUrl="jdbc:mysql://localhost:3306/attend_check?serverTimezone=UTC";
 				String dbId="root";
 				String dbPass="test1234";
 				Class.forName("com.mysql.jdbc.Driver");
 				conn=DriverManager.getConnection(jdbcUrl,dbId ,dbPass );
-				String sql= "select * from attend_info where userID = ? and userPassword = ?";
+				String sql= "select * from attend_info";
 				pstmt=conn.prepareStatement(sql);
-				pstmt.setString (1, id);
-				pstmt.setString (2, pwd);
 				rs = pstmt.executeQuery();
-				flag = rs.next();
 				
+				while(rs.next())//쿼리 한줄씩 가져오기
+				{
+					String userID= rs.getString("userID");
+					String userPassword= rs.getString("userPassword");
 				
-				if (id.equals(rs.getString("userID")) && pwd.equals(rs.getString("userPassword"))) {
+				//아이디와 비밀번호 비교하기
+				//아이디와 비밀번호가 맞을 경우
+				if(id.equals(rs.getString("userID")) && pwd.equals(rs.getString("userPassword"))){
 					session.setAttribute("id", id);//아이디값을 세션으로 저장해줌
+					out.print("<script>alert('로그인에 성공했습니다.'); location.href='template.jsp';</script>");
+					}
+				
+				//아이디는 존재하는데 비밀번호가 틀릴경우
+				else if(id.equals(rs.getString("userID")) && !pwd.equals(rs.getString("userPassword"))){
+					out.print("<script>alert('비밀번호가 틀렸습니다.'); location.href='template.jsp';</script>");
 				}
-
+				//아이디가 존재하지 않을경우
+				else{
+						out.print("<script>alert('존재하지 않는 아이디입니다.'); location.href='template.jsp';</script>");
+					}	
+				}
 			}catch(Exception e){
 				e.printStackTrace();
 			
@@ -62,7 +77,7 @@
 			
 			
 			
-			response.sendRedirect("template.jsp");//template.jsp로 리다이렉트해줌
+			//response.sendRedirect("template.jsp");//template.jsp로 리다이렉트해줌
 		%>
 	</div>
 </body>

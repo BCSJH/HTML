@@ -14,6 +14,7 @@
  
     <script type="text/javascript">
    
+    	//아이디 체크를 위함
     	function checkid(mem_id) {
 
     		if(document.userInfo.id.value == "") {
@@ -138,7 +139,7 @@
             </table>
             <br>
             <input type="submit" value="가입"/>
-            <input type="button" value="취소">
+            <input type="button" value="취소" onClick="location.href='main.jsp'">
         </form>
     </div>
 </body>

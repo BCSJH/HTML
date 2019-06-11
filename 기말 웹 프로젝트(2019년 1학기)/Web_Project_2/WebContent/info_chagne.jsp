@@ -27,13 +27,13 @@
 		%>
 			회원 수정
 			<%
+			//디비연동에 필요한 변수
 			boolean flag = false;
 			Connection conn = null;
-			boolean check = false;
-
 			PreparedStatement pstmt=null;
 			ResultSet rs = null;
 			
+			//디비연동
 			try{
 				String jdbcUrl="jdbc:mysql://localhost:3306/attend_check?serverTimezone=UTC";
 				String dbId="root";
@@ -44,8 +44,9 @@
 				pstmt=conn.prepareStatement(sql);
 				rs=pstmt.executeQuery();
 				
+				//쿼리 한줄씩 가져오기
 				while(rs.next()){	
-					if (id.equals("1234")){
+					if (id.equals("1234")){//관리자일 경우
 						String userID= rs.getString("userID");
 						String userPassword= rs.getString("userPassword");
 						String userName= rs.getString("userName");

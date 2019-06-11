@@ -26,7 +26,7 @@
 		<form action="login_ok.jsp" method="post">
 				아이디 &nbsp;&nbsp;&nbsp;<input type="text" name="id" maxlength="60" ><br><br>
 				비밀번호&nbsp;<input type="password" name="pwd" maxlength="60" ><br><br>
-				<input type="submit" value="로그인" >
+				<input type="submit" value="로그인">
 			 
 				<input type="button" value="회원가입" onclick="location.href = 'main.jsp?pagefile=join'">
 		</form>

@@ -11,7 +11,7 @@
 %>
 <body>
 <%
-	session.invalidate();
+	session.invalidate();//¼¼¼Ç ·Î±×¾Æ¿ô
 	response.sendRedirect("template.jsp");//templateÀ¸·Î º¸³¿
 %>
 </body>
