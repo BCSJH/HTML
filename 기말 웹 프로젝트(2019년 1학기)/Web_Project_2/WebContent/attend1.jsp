@@ -75,6 +75,11 @@ if (session.getAttribute("id")!= null) {
 				}
 				%>
 			</tr>
+<% 
+		}
+	
+	}
+%>
 			<tr>
 				<td>
 					√‚ºÆ : <%=attend%><br>
@@ -87,11 +92,6 @@ if (session.getAttribute("id")!= null) {
 				%>
 				</td>
 			</tr>
-<% 
-		}
-	
-	}
-%>
 </table>
 <%
 }

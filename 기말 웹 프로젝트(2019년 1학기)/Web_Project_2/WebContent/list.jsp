@@ -48,10 +48,7 @@
 	totalPage = (int) Math.ceil((double) totalRecord / numPerPage); //전체페이지수
 	nowBlock = (int) Math.ceil((double) nowPage / pagePerBlock); //현재블럭 계산
 	totalBlock = (int) Math.ceil((double) totalPage / pagePerBlock); //전체블럭계산
-	
 
-	
-	
 %>
 
 <html>
@@ -71,7 +68,7 @@
 <link href="style.css" rel="stylesheet" type="text/css">
 <script type="text/javascript">
 
-/*
+	/*
 	function list() {
 		document.listFrm.action = "list.jsp";
 		document.listFrm.submit();
@@ -82,14 +79,12 @@
 		document.readFrm.submit();
 	}
 	function block(value) {
-		document.readFrm.nowPage.value =
-<%=pagePerBlock%>
-	* (value - 1) + 1;
+		document.readFrm.nowPage.value = <%=pagePerBlock%> * (value - 1) + 1;
 		document.readFrm.submit();
 	}
 	
 	//정현 수정
-	
+	/*
 	function check() {
 		if (document.searchFrm.keyWord.value == "") {
 			alert("검색어를 입력하세요.");
@@ -120,7 +115,7 @@
 
 			</button>
 
-			<a class="navbar-brand" >한국성서대 출석확인 사이트   게시판</a>
+			<a class="navbar-brand" >한국성서대 출석확인 사이트 게시판</a>
 
 		</div>
 
@@ -129,7 +124,7 @@
 			<ul class="nav navbar-nav">
 
 				
-
+				<!-- 정현 추가 -->
 				<li class="active"><a href="main.jsp?pagefile=list">게시판</a></li>
 
 			</ul>
@@ -141,9 +136,9 @@
 
 
 	<div align="center">
-		<br />
+		<br/>
 		
-		<br />
+		<br/>
 <table style="align: center; width: 960;">		
 	<tr>
 				<td>Total : <%=totalRecord%>Articles(<font color="red">
@@ -287,38 +282,42 @@
 		
 		
 		<hr width="960" />
-		<form name="searchFrm" method="get" action="list.jsp">
-		
-		
-		
-			<table style="width: 960; cellpadding: 4; cellspacing: 0">
-				<tr>
-					<td align="center" valign="bottom">
+		<form name="searchFrm" method="get" action="list_ok.jsp">
+			<div>
+			<select name="keyField" size="1">
+					<option value="mem_name">이 름</option>
+					<option value="title">제 목</option>
+					<option value="content">내 용</option>
+			</select> 
 					
-					
-					<select name="keyField" size="1">
-							<option value="mem_name">이 름</option>
-							<option value="title">제 목</option>
-							<option value="content">내 용</option>
-					</select> 
-					
-					
-					<input size="16" name="keyWord"> <input type="button" value="찾기" onClick="javascript:check()"> 
-					<input type="hidden" name="nowPage" value="1"></td>
-				</tr>
-			</table>
+					<!-- http://localhost:8080/Web_Project_2/main.jsp?pagefile=list&keyField=mem_name&keyWord=66&nowPage=1 -->
+					<input size="16" name="keyWord">
 			
 			
+					<!-- content에 넣기 위함 정현,본익수정-->
+
+					<input type="hidden" name="reload" value="true"> 
+					<input type="hidden" name="nowPage" value="1">		
+					<input type="hidden" name="num"> 
+					<input type="hidden" name="nowPage" value="<%=nowPage%>"> 
+					<input type="hidden" name="keyField" value="<%=keyField%>"> 
+					<input type="hidden" name="keyWord" value="<%=keyWord%>">
+					<input type="hidden" name="nowPage" value="1">			
+			<input type="submit" value="찾기">
+			</div>
 		</form>
+		
+		
+		
 		<form name="listFrm" method="post">
 			<input type="hidden" name="reload" value="true"> 
 			<input type="hidden" name="nowPage" value="1">
 		</form>
 		<form name="readFrm" method="get">
-			<input type="hidden" name="num"> <input type="hidden"
-				name="nowPage" value="<%=nowPage%>"> <input type="hidden"
-				name="keyField" value="<%=keyField%>"> <input type="hidden"
-				name="keyWord" value="<%=keyWord%>">
+			<input type="hidden" name="num"> 
+			<input type="hidden" name="nowPage" value="<%=nowPage%>"> 
+			<input type="hidden" name="keyField" value="<%=keyField%>"> 
+			<input type="hidden" name="keyWord" value="<%=keyWord%>">
 		</form>
 		
 		

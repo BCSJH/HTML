@@ -90,14 +90,16 @@
 			pstmt=conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 
-			while(rs.next()){
+			//튜플의 개수 구하기
+			while(rs.next()){//rs가 null일 때까지 반복
 				w = rs.getString("w");
 				if("1".equals(w))
 				{
 					count++;
 				}
 			}
-			rs.first();	
+			
+			rs.first();	//튜플을 첫번째 행으로 바꿔주기
 		%>
 		<td>
 			수강인원  : <%=count%>			

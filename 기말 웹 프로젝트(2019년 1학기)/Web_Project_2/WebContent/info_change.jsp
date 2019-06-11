@@ -132,11 +132,6 @@
 							<tr>
 							<td id="title">학번</td><td><%=userID%> (학번은 수정할 수 없습니다.)
 							
-							<!-- 
-								기존 비밀번호 검사 하는 코드 필요
-								관리자 회원관리 기능 필요
-								 
-							 -->
 							<tr>
 							<td>기존 비밀번호</td>
 							<td><input type="password" name="password" maxlength="50"></td>
@@ -154,6 +149,7 @@
                 			
                 			<tr>
 								<td id="title">성별</td>
+								<!-- DB에 있던 값으로 체크값 바꾸기 -->
 								<%if (userGender.equals("남")){%>
 									<td>
 										<input type="radio" name="gender" value="남" checked>남

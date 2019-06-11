@@ -18,6 +18,9 @@
 			String id = request.getParameter("id");
 			String pwd = request.getParameter("pwd");
 			
+			int count = 0;// DB에 몇 개의 튜플이있는지 확인
+			int count_2 = 0;//존재하지 않는 아이디인지 확인하기 위한 변수
+
 			//디비연동에 필요한 변수
 			boolean flag = false;
 			Connection conn = null;
@@ -35,27 +38,27 @@
 				pstmt=conn.prepareStatement(sql);
 				rs = pstmt.executeQuery();
 				
+				//튜플의 개수 구하기
+
 				while(rs.next())//쿼리 한줄씩 가져오기
 				{
 					String userID= rs.getString("userID");
 					String userPassword= rs.getString("userPassword");
-				
 				//아이디와 비밀번호 비교하기
 				//아이디와 비밀번호가 맞을 경우
-				if(id.equals(rs.getString("userID")) && pwd.equals(rs.getString("userPassword"))){
+				if(id.equals(userID) && pwd.equals(userPassword)){
 					session.setAttribute("id", id);//아이디값을 세션으로 저장해줌
 					out.print("<script>alert('로그인에 성공했습니다.'); location.href='template.jsp';</script>");
 					}
-				
+
 				//아이디는 존재하는데 비밀번호가 틀릴경우
-				else if(id.equals(rs.getString("userID")) && !pwd.equals(rs.getString("userPassword"))){
-					out.print("<script>alert('비밀번호가 틀렸습니다.'); location.href='template.jsp';</script>");
+				else if(id.equals(userID)){
+						if(!pwd.equals(userPassword))
+							out.print("<script>alert('비밀번호가 틀렸습니다.'); location.href='template.jsp';</script>");
+					}
+
 				}
-				//아이디가 존재하지 않을경우
-				else{
-						out.print("<script>alert('존재하지 않는 아이디입니다.'); location.href='template.jsp';</script>");
-					}	
-				}
+				out.print("<script>alert('존재하지 않는 아이디입니다.'); location.href='template.jsp';</script>");
 			}catch(Exception e){
 				e.printStackTrace();
 			
