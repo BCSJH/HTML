@@ -10,7 +10,7 @@
 <title>≈€«√∏¥</title>
 <style>
 #container {
-	width: 940px;
+	width: 1500px;
 	margin: 0px auto;
 	padding: 20px;
 	border: 1px solid #bcbcbc;
@@ -20,8 +20,8 @@
 	padding:20px;
 	margin-bottom: 10px;
 	margin-left: 100px;
-	width: 900px;
-	height: 90;
+	width: 100%;
+	height: 200;
 	float: right;
 	text-align: right;
 }
@@ -30,14 +30,14 @@
 	padding: 10px;
 	margin-bottom: 5px;
 	width: 200px;
-	height: 900px;
+	height: 1000px;
 	float: left;
 	border: 1px solid #bcbcbc;
 }
 
 #content {
-	width: 680px;
-	height: 900px;
+	width: 1250px;
+	height: 1000px;
 	padding: 10px;
 	float: right;
 	border: 1px solid #bcbcbc;
@@ -45,6 +45,7 @@
 
 #footer {
 	clear: both;
+	margin-bottom: 5px;	
 	padding: 20px;
 	border: 1px solid #bcbcbc;
 }

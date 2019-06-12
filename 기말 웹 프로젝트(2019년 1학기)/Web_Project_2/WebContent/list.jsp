@@ -6,7 +6,7 @@
 <%@page import="java.util.Date"%>
 <%@ page import="java.sql.*,java.text.SimpleDateFormat,java.util.Date"%>
 
-
+ 
 <jsp:useBean id="bMgr" class="Board.BoardMgr" />
 
 <%
@@ -84,7 +84,6 @@
 	}
 	
 	//정현 수정
-	/*
 	function check() {
 		if (document.searchFrm.keyWord.value == "") {
 			alert("검색어를 입력하세요.");
@@ -295,7 +294,6 @@
 			
 			
 					<!-- content에 넣기 위함 정현,본익수정-->
-
 					<input type="hidden" name="reload" value="true"> 
 					<input type="hidden" name="nowPage" value="1">		
 					<input type="hidden" name="num"> 
