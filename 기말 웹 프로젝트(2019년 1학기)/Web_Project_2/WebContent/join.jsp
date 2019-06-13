@@ -5,7 +5,7 @@
 	<style>
 		#line{
 		margin: 0 auto;
-		width:500px;
+		width:1000px;
 		}
 	</style>
     <title>회원가입 화면</title>
@@ -61,7 +61,7 @@
         <form method="post" action="insertPro_info.jsp" name="userInfo" onsubmit="return checkValue()">
             <table>
                 <tr>
-                    <td id="title">학번</td>
+                    <td id="title" style="background-color: #e9e9e9; text-align: center;">학번</td>
                     <td>
                         <input type="text" name="id" maxlength="50">
                    </td>
@@ -74,27 +74,27 @@
                 </tr>
           
                 <tr>
-                    <td id="title">비밀번호</td>
+                    <td id="title" style="background-color: #e9e9e9; text-align: center;">비밀번호</td>
                     <td>
                         <input type="password" name="password" maxlength="50">
                     </td>
                 </tr>
                 
                 <tr>
-                    <td id="title">비밀번호 재입력</td>
+                    <td id="title" style="background-color: #e9e9e9; text-align: center;">비밀번호 재입력</td>
                     <td>
                         <input type="password" name="passwordcheck" maxlength="50">
                     </td>
                 </tr>
                 <tr>
-                    <td id="title">이름</td>
+                    <td id="title" style="background-color: #e9e9e9; text-align: center;">이름</td>
                     <td>
                         <input type="text" name="name" maxlength="50">
                     </td>
                 </tr>
                     
                 <tr>
-                    <td id="title">성별</td>
+                    <td id="title" style="background-color: #e9e9e9; text-align: center;">성별</td>
                     <td>
                         <input type="radio" name="gender" value="남" checked>남
                         <input type="radio" name="gender" value="여" checked>여
@@ -102,7 +102,7 @@
                 </tr>
                  
                 <tr>
-                    <td id="title">학과</td>
+                    <td id="title" style="background-color: #e9e9e9; text-align: center;">학과</td>
                     <td>
                      
                         <select name="major">
@@ -116,21 +116,10 @@
                 </tr>
                  
                   <tr>
-                    <td id="title">수업</td>
-                  </tr>
-                  
-                    <tr>
+                    <td id="title" style="background-color: #e9e9e9; text-align: center;">수업</td>
                     	<td>
                      		<input type="checkbox" id="study1" name="study1" value="1">웹시스템설계및계발
-                    	</td>
-                    </tr>
-                    <tr>
-                    	<td>
                      		<input type="checkbox" id="study2" name="study2" value="1">운영체제
-                    	</td>
-                    </tr>
-                    <tr>
-                    	<td>
                      		<input type="checkbox" id="study3" name="study3" value="1">머신러닝프로그래밍
                     	</td>
                     </tr>

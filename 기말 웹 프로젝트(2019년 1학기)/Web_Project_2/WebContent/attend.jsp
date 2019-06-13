@@ -2,6 +2,11 @@
 <%@ page import="java.sql.*"%>
 <html>
 <head>
+<style>
+h1 {
+	text-align: center;
+}
+</style>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title> 회원 정보 표시 </title>
 </head>
@@ -29,12 +34,15 @@ rs=pstmt.executeQuery();
 <%
 if (session.getAttribute("id")!= null) {
 %>
-	<table>
+<br><br>
+<h1><b>웹시스템설계및개발</b></h1>
+<br><br>
+	<table style="border: 1px solid #dddddd; width:80%; margin:0 auto;" class="table table-condensed table-hover">
 		<tr>
-			<td>학번
-			<td>이름
-			<td>날짜
-			<td>출석 여부
+			<td style="background-color: #e9e9e9; text-align: center;">학번
+			<td style="background-color: #e9e9e9; text-align: center;">이름
+			<td style="background-color: #e9e9e9; text-align: center;">날짜
+			<td style="background-color: #e9e9e9; text-align: center;">출석 여부
 		</tr>
 <%
 	while(rs.next()){
@@ -90,7 +98,7 @@ if (session.getAttribute("id")!= null) {
 }
 else{
 	%>
-	웹 수강 신청한 학생만 이용 가능합니다.
+	로그인을 해주세요.
 	<%
 }
 }catch(Exception e){

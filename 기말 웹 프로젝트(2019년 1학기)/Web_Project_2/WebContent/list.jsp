@@ -1,8 +1,8 @@
 <%@ page contentType="text/html; charset=EUC-KR"%>
 <%@page import="java.util.Vector"%>
 <%@page import="Board.BoardBean"%>
-<%@page import="java.sql.Timestamp"%>
 <%@page import="Board.*"%>
+<%@page import="java.sql.Timestamp"%>
 <%@page import="java.util.Date"%>
 <%@ page import="java.sql.*,java.text.SimpleDateFormat,java.util.Date"%>
 
@@ -65,7 +65,6 @@
 
 
 <title>JSP Board</title>
-<link href="style.css" rel="stylesheet" type="text/css">
 <script type="text/javascript">
 
 	/*
@@ -138,7 +137,7 @@
 		<br/>
 		
 		<br/>
-<table style="align: center; width: 960;">		
+<table style="align: center; width: 90%;">		
 	<tr>
 				<td>Total : <%=totalRecord%>Articles(<font color="red">
 						<%=nowPage%>/<%=totalPage%>Pages
@@ -146,7 +145,7 @@
 				</td>
 			</tr>
 		</table>
-		<table style="width: 960; cellpadding: 3; align: center">
+		<table style="width: 90%; cellpadding: 3; align: center">
 			<tr>
 				<td align="center" colspan="2">
 					<%

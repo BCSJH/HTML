@@ -1,8 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
+<%@page import="Board.BoardBean"%>
+<%@page import="Board.*"%>
+
 <!DOCTYPE html>
 <html>
 <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width" initial-scale="1">
+<!-- 스타일시트 참조  -->
+<link rel="stylesheet" href="css/bootstrap.css">
+
 <meta charset="EUC-KR">
 <title>메인 홈</title>
 </head>

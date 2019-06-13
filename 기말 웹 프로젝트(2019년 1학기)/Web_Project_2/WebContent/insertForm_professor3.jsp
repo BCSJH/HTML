@@ -7,24 +7,31 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<style type="text/css">
-		table.ex1 {
-		width:98%;
-		margin:0 auto;
-		text-align:left;
-		}
-		ex1.td{
-		width:10%;
-		padding:10px 30px 30px 30px;
-		}
-		table.ex2 {
-		width:98%;
-		margin:0 auto;
-		text-align:center;
-		}
-		ex2.th{
-		}
-	</style>
+<style type="text/css">
+h1 {
+	text-align: center;
+}
+table.ex1 {
+	width: 98%;
+	margin: 0 auto;
+	text-align: left;
+}
+
+ex1.td {
+	width: 10%;
+	padding: 10px 30px 30px 30px;
+}
+
+table.ex2 {
+	width: 98%;
+	margin: 0 auto;
+	text-align: center;
+}
+
+ex2.th {
+	
+}
+</style>
 <meta charset="EUC-KR">
 <title>교수 출석 체크</title>
 <%
@@ -36,8 +43,9 @@
 %>
 </head>
 <body>
-<h1>머신러닝프로그래밍</h1>
-<br>
+<br><br>
+<h1><b>머신러닝프로그래밍</b></h1>
+<br><br>
 <table class="ex1">
 	<tr>
 		<td>
@@ -110,11 +118,12 @@
 		<form method="post" action="insertPro_professor3.jsp">
 		<table class="ex2">
 			<tr>
-			<th>학번</th>
-			<th>이름</th>
-			<th>학과</th>
-			<th>출석 날짜</th>
-			<th>출석 여부</th>	
+			<th style="background-color: #e9e9e9; text-align: center;">학번</th>
+			<th style="background-color: #e9e9e9; text-align: center;">이름</th>
+			<th style="background-color: #e9e9e9; text-align: center;">학과</th>
+			<th style="background-color: #e9e9e9; text-align: center;">출석 날짜</th>
+			<th style="background-color: #e9e9e9; text-align: center;">출석 여부</th>	
+
 		<% 
 			while(rs.next()){
 				id = rs.getString("userID");

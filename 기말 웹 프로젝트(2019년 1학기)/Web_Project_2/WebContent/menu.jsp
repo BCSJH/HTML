@@ -1,9 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
 <%@ page import="java.sql.*"%>
+<%@page import="Board.BoardBean"%>
+<%@page import="Board.*"%>
+
 <!DOCTYPE html>
 <html>
 <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width" initial-scale="1">
+<!-- 스타일시트 참조  -->
+<link rel="stylesheet" href="css/bootstrap.css">
 <meta charset="EUC-KR">
 <title>메뉴</title>
 </head>
@@ -27,6 +34,7 @@
 			} 
 			else if(id.equals("1234")) { //id가 null이면
 				%>
+
 		<a href="main.jsp">홈</a><br>
 		<a href="main.jsp?pagefile=info_change">회원관리</a><br>
 		<a href="main.jsp?pagefile=schedule"> 학과일정 </a><br>
@@ -37,7 +45,7 @@
 			&nbsp;&nbsp;<a href="main.jsp?pagefile=insertForm_professor3">· 머신러닝 프로그램 </a><br>
 		<br>
 		<a href="main.jsp?pagefile=sign"> 출석안내문 </a><br>
-		<a href="main.jsp?pagefile=board"> 게시판목록 </a><br>
+		<a href="main.jsp?pagefile=list"> 게시판목록 </a><br>
 			&nbsp;&nbsp;<a href="main.jsp?pagefile=list">· 이의 신청 게시판 </a><br>
 			&nbsp;&nbsp;<a href="main.jsp?pagefile=notice">· 공지 게시판 </a>				
 				
@@ -45,7 +53,6 @@
 					} 
 			else { //id가 null이 아니면 
 				%>
-
 				<a href="main.jsp">홈</a><br>
 				<a href="main.jsp?pagefile=info_change">정보수정</a><br>
 				<a href="main.jsp?pagefile=schedule"> 학과일정 </a><br>
@@ -108,7 +115,7 @@
 				%>
 				<br>
 				<a href="main.jsp?pagefile=sign"> 출석안내문 </a><br>
-				<a href="main.jsp?pagefile=board"> 게시판목록 </a><br>
+				<a href="main.jsp?main.jsp?pagefile=list"> 게시판목록 </a><br>
 				
 					&nbsp;&nbsp;<a href="main.jsp?pagefile=list">· 이의 신청 게시판 </a><br>
 					&nbsp;&nbsp;<a href="main.jsp?pagefile=notice">· 공지 게시판 </a>
